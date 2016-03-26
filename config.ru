@@ -1,9 +1,11 @@
 require 'bundler'
 Bundler.require
 
-require './controllers/'
+ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'danstagram')
 
-require './models/'
+require './controllers/application_controller'
+
+# require './models/'
 
 
 
