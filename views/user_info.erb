@@ -1,31 +1,31 @@
 <header>
-  <button type="button" name="button">Log Out</button>
+  <button class="btn" type="button" name="button">Log Out</button>
 </header>
 <h1>Log in</h1>
-<form action="" method="post">
+<form action="/users/login" method="post">
   <div class="form-group">
     <label for="text">Username</label>
-    <input type="email" class="form-control" id="username" placeholder="Username">
+    <input type="text" class="form-control" name="username" value="dorn" placeholder="Username">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" class="form-control" name="password" value="TEST PASSWORd" placeholder="Password">
   </div>
   <button type="submit" class="btn">Submit</button>
 </form>
 <h1>Sign Up</h1>
-<form action="" method="post">
+<form action="/users/signup" method="post">
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" placeholder="Username">
+    <input type="text" class="form-control" name="username" placeholder="Username" value="dan">
   </div>
   <div class="form-group">
     <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" placeholder="Email">
+    <input type="email" class="form-control" name="email" placeholder="Email" value="stuff@stuff.stuff">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" class="form-control" name="password" placeholder="Password" value="TEST VALUE">
   </div>
   <button type="submit" class="btn">Submit</button>
 </form>

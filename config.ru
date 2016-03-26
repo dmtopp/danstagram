@@ -4,6 +4,9 @@ Bundler.require
 ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'danstagram')
 
 require './controllers/application_controller'
+require './controllers/users_controller'
+
+require './models/user'
 
 # require './models/'
 
@@ -12,3 +15,4 @@ require './controllers/application_controller'
 
 
 map('/') { run ApplicationController }
+map('/users') { run UserController }
