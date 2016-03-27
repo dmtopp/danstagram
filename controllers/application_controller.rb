@@ -4,6 +4,8 @@ class ApplicationController < Sinatra::Base
 
   enable :sessions
 
+  $photo_index = 0
+
   get '/' do
     erb :user_info
   end

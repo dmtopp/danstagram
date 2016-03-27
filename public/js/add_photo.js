@@ -20,41 +20,59 @@ function photoHandler(){
     reader.onload = (function(anImg) {
       return function(e) {
         anImg.src = e.target.result;
+        $.ajax({
+          url: '/photos/upload',
+          method: 'POST',
+          data: {
+            imgBase64: e.target.result
+          },
+          success: function(){
+            console.log("sent!");
+          },
+          failure: function(){
+            console.log("awww...");
+          }
+        });
+
+
       };
     })(img);
-    reader.readAsDataURL(photo)
+    reader.readAsDataURL(photo);
+
+    // console.log(img.src);
+    // $.ajax({
+    //   url: '/photos/upload',
+    //   method: 'POST',
+    //   data: {
+    //     imgBase64: img.src
+    //   }
+    //   success: function(){
+    //     console.log("sent!");
+    //   },
+    //   failure: function(){
+    //     console.log("awww...");
+    //   }
+    // });
 
     // actually upload the file
-    function FileUpload(img, file) {
-      var reader = new FileReader();
-      var xhr = new XMLHttpRequest();
-      this.xhr = xhr;
-
-      var self = this;
-
-      // this.xhr.upload.addEventListener("progress", function(e){
-      //   if (e.lengthComputable) {
-      //     var percentage = Math.round((e.loaded * 100) / e.total);
-      //     self.ctrl.update(percentage)
-      //   }
-      // }, false);
-      //
-      // xhr.upload.addEventListener("load", function(e){
-      //   self.ctrl.update(100);
-      //   var canvas = self.ctrl.ctx.canvas;
-      //   canvas.parentNode.removeChild(canvas);
-      // }, false);
-
-      xhr.open("POST", '/photos/upload');
-      xhr.overrideMimeType('text/plain; charset=x-user-defined-binary');
-      reader.onload = function(e) {
-        // xhr.send(e.target.result);
-      };
-      xhr.send('buhhhhh');
-      reader.readAsBinaryString(file);
-    }
-
-    new FileUpload(img, img.file);
+    // function FileUpload(img, file) {
+    //   var reader = new FileReader();
+    //   var xhr = new XMLHttpRequest();
+    //   this.xhr = xhr;
+    //
+    //   var self = this;
+    //
+    //
+    //   xhr.open("POST", '/photos/upload');
+    //   xhr.overrideMimeType('text/plain; charset=x-user-defined-binary');
+    //   reader.onload = function(e) {
+    //     // xhr.send(e.target.result);
+    //   };
+    //   xhr.send('buhhhhh');
+    //   reader.readAsBinaryString(file);
+    // }
+    //
+    // new FileUpload(img, img.file);
   }
 
 
