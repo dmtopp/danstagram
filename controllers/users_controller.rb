@@ -9,7 +9,7 @@ class UserController < ApplicationController
     session[:logged_in] = true
     session[:username] = params[:username]
     @users = User.all
-    erb :all
+    erb :add_photo
   end
 
   get '/logout/?' do

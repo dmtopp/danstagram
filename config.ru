@@ -16,3 +16,4 @@ require './models/user'
 
 map('/') { run ApplicationController }
 map('/users') { run UserController }
+map('/photos') { run PhotoController }
