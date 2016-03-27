@@ -5,8 +5,10 @@ ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'dansta
 
 require './controllers/application_controller'
 require './controllers/users_controller'
+require './controllers/photos_controller'
 
 require './models/user'
+require './models/photo'
 
 # require './models/'
 
