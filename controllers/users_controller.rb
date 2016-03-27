@@ -6,20 +6,24 @@ class UserController < ApplicationController
 
   post '/login/?' do
     user = User.find_by username: params[:username]
-    p user.to_s
-    p user.username
-    p user.password
+    session[:logged_in] = true
+    session[:username] = params[:username]
+    @users = User.all
+    erb :all
   end
 
-  post '/logout/?' do
-
-
+  get '/logout/?' do
+    session[:logged_in] = false
+    session[:username] = nil
+    @users = User.all
+    erb :all
   end
 
   post '/signup' do
     does_exist = User.find_by username: params[:username]
     if !does_exist
       User.create username: params[:username], email: params[:email], password: params[:password]
+
       @users = User.all
       erb :all
     else
