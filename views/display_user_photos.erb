@@ -1,0 +1,6 @@
+<div id="all-photo">
+  <% Photo.where(owner_id: @user.id).find_each do |photo| %>
+    <img src="<%= photo.url %>">
+  <% end %>
+
+</div>
